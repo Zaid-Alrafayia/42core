@@ -6,9 +6,10 @@
 /*   By: zaalrafa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 19:53:20 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/20 18:34:00 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/08/21 00:51:08 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
 int	ft_isdigit(char letter)
 {

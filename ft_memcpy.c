@@ -6,9 +6,10 @@
 /*   By: zaalrafa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 22:00:50 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/20 23:57:26 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/08/21 00:51:01 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
 void	*ft_memcpy(char *dest, char *src)
 {

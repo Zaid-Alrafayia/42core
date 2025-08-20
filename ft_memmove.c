@@ -6,13 +6,14 @@
 /*   By: zaalrafa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 22:06:13 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/20 23:59:00 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/08/21 00:49:51 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-void	*ft_memmove(char *dest, char *src, int n)
+void	*ft_memmove(char *dest, char *src, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	if (src > dest)
 	{
