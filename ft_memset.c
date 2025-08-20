@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zaalrafa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/20 18:57:59 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/20 19:04:32 by zaalrafa         ###   ########.fr       */
+/*   Created: 2025/08/20 19:13:09 by zaalrafa          #+#    #+#             */
+/*   Updated: 2025/08/20 19:19:16 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int num)
+void	ft_memset(char *arr, char letter, int num)
 {
-	if (num >= 0 && num <= 127)
+	int	i;
+
+	i = 0;
+	while (i != num)
 	{
-		return (num);
+		arr[i] = letter;
+		i += 1;
 	}
-	return (0);
 }
