@@ -6,11 +6,10 @@
 /*   By: zaalrafa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 19:42:58 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/19 19:52:58 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/08/21 00:12:41 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
+#include "libft.h"
 
 int	ft_isalpha(char letter)
 {

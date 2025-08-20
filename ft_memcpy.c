@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zaalrafa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 00:14:37 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/21 00:19:09 by zaalrafa         ###   ########.fr       */
+/*   Created: 2025/08/20 22:00:50 by zaalrafa          #+#    #+#             */
+/*   Updated: 2025/08/20 23:57:26 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bzero(char *src, int n)
+void	*ft_memcpy(char *dest, char *src)
 {
 	int	i;
 
 	i = 0;
-	while (i <= n)
+	while (src[i])
 	{
-		src[i] = '\0';
+		dest[i] = src[i];
+		i += 1;
 	}
+	return (dest);
 }

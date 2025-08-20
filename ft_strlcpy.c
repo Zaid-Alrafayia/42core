@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zaalrafa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 00:14:37 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/21 00:19:09 by zaalrafa         ###   ########.fr       */
+/*   Created: 2025/08/21 00:01:58 by zaalrafa          #+#    #+#             */
+/*   Updated: 2025/08/21 00:06:22 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-void	ft_bzero(char *src, int n)
+char	ft_strlcpy(char *dest,char *src, int n)
 {
 	int	i;
 
 	i = 0;
-	while (i <= n)
-	{
-		src[i] = '\0';
-	}
+	while
 }
