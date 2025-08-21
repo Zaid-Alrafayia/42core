@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zaalrafa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 01:17:21 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/21 21:51:53 by zaalrafa         ###   ########.fr       */
+/*   Created: 2025/08/21 23:19:42 by zaalrafa          #+#    #+#             */
+/*   Updated: 2025/08/21 23:26:22 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
-	size_t	j;
 
 	i = 0;
-	j = ft_strlen(dest);
-	while ((src && dest) && (i < size))
+	while ((s1[i] && s2[i]) || i < n)
 	{
-		dest[j] = src[i];
+		if (s1[i] > s2[i])
+			return (s1[i] - s2[i]);
+		else if (s1[i] < s2[i])
+			return (s2[i] - s1[i]);
 		i++;
-		j++;
 	}
-	dest[-1] = '\0';
-	return (j);
+	return (0);
 }

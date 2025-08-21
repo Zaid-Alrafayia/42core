@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zaalrafa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 01:17:21 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/21 21:51:53 by zaalrafa         ###   ########.fr       */
+/*   Created: 2025/08/22 01:27:30 by zaalrafa          #+#    #+#             */
+/*   Updated: 2025/08/22 02:03:17 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+int	ft_atoi(const char *str)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	neg;
+	int	result;
 
+	result = 0;
+	neg = 1;
 	i = 0;
-	j = ft_strlen(dest);
-	while ((src && dest) && (i < size))
-	{
-		dest[j] = src[i];
+	while ((str[i] == 32) || (str[i] >= 9 && str[i] <= 13))
 		i++;
-		j++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			neg *= -1;
 	}
-	dest[-1] = '\0';
-	return (j);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = (str[i] - '0') + (result * 10);
+		i++;
+	}
+	return (result * neg);
 }
