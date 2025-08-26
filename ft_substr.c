@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zaalrafa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 00:01:58 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/24 16:45:03 by zaalrafa         ###   ########.fr       */
+/*   Created: 2025/08/23 16:02:49 by zaalrafa          #+#    #+#             */
+/*   Updated: 2025/08/24 15:47:59 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*str;
 	size_t	i;
-	size_t	size;
+	size_t	s_len;
 
-	size = ft_strlen(src);
+	if (!s)
+		return (0);
+	s_len = ft_strlen(s);
 	i = 0;
-	if (n == 0)
+	if (start >= s_len)
+		return (ft_strdup(""));
+	if (len > s_len - start)
+		len = s_len - start;
+	str = (char *) malloc(len * sizeof(char) + 1);
+	if (!str)
+		return (0);
+	while (s[i + start] && i < len)
 	{
-		return (size);
+		str[i] = s[i + start];
+		i++;
 	}
-	while (i < n - 1 && src[i])
-	{
-		dest[i] = src[i];
-		i += 1;
-	}
-	dest[i] = '\0';
-	return (size);
+	str[i] = '\0';
+	return (str);
 }
