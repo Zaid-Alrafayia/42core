@@ -6,7 +6,7 @@
 /*   By: zaalrafa < zaalrafa@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 00:14:37 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/28 15:05:48 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:11:34 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -19,5 +19,6 @@ void	ft_bzero(char *src, size_t n)
 	while (i <= n)
 	{
 		src[i] = '\0';
+		i++;
 	}
 }
