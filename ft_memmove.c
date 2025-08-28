@@ -6,7 +6,7 @@
 /*   By: zaalrafa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 22:06:13 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/21 00:49:51 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/08/28 05:37:35 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -26,11 +26,11 @@ void	*ft_memmove(char *dest, char *src, size_t n)
 	}
 	else
 	{
-		i = n - 1;
-		while (0 <= i)
+		i = n ;
+		while (0 < i)
 		{
+			i--;
 			dest[i] = src[i];
-			i -= 1;
 		}
 	}
 	return (dest);

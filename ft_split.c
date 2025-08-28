@@ -6,7 +6,7 @@
 /*   By: zaalrafa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 22:20:07 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/26 21:07:30 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/08/28 04:24:42 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ static char	*assign_word(char const *s, int start, int end)
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
-	size_t	i;
-	size_t	j;
-	size_t	start;
+	int		i;
+	int		j;
+	int		start;
 
 	i = -1;
 	start = -1;
@@ -65,11 +65,11 @@ char	**ft_split(char const *s, char c)
 	arr = (char **) malloc((count_word(s, c) + 1) * sizeof(char *));
 	if (!arr)
 		return (NULL);
-	while (++i <= ft_strlen(s))
+	while (++i <= (int)ft_strlen(s))
 	{
 		if (s[i] != c && start < 0)
 			start = i;
-		else if (start >= 0 && (s[i] == c || i == ft_strlen(s)))
+		else if (start >= 0 && (s[i] == c || i == (int)ft_strlen(s)))
 		{
 			arr[j++] = assign_word(s, start, i);
 			start = -1;

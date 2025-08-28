@@ -6,13 +6,13 @@
 /*   By: zaalrafa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 22:16:25 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/21 22:45:30 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/08/28 05:40:54 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int a)
+int	ft_tolower(int a)
 {
 	if ((a >= 'A') && (a <= 'Z'))
 	{
