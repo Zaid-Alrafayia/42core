@@ -6,7 +6,7 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 18:57:59 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/28 15:07:40 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/08/28 15:51:26 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -15,7 +15,7 @@ int	ft_isascii(int num)
 {
 	if (num >= 0 && num <= 127)
 	{
-		return (num);
+		return (1);
 	}
 	return (0);
 }

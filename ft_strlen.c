@@ -6,7 +6,7 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 19:08:53 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/28 15:18:01 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/08/28 15:52:19 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -16,9 +16,7 @@ size_t	ft_strlen(const char *str)
 	int	i;
 
 	i = 0;
-	while (str)
-	{
+	while (str[i])
 		i++;
-	}
 	return (i);
 }
