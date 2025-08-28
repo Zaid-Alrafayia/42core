@@ -6,7 +6,7 @@
 #    By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/28 02:08:29 by zaalrafa          #+#    #+#              #
-#    Updated: 2025/08/28 15:03:59 by zaalrafa         ###   ########.fr        #
+#    Updated: 2025/08/28 17:30:05 by zaalrafa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,8 @@ SRCS = ft_itoa.c ft_split.c ft_strncmp.c \
 	ft_isdigit.c  ft_putnbr_fd.c ft_strlen.c \
 	ft_isprint.c  ft_putstr_fd.c ft_strmapi.c
 
-SRCS_B = ft_lstsize.c ft_lstadd_back.c ft_lstadd_front.c ft_lstmap.c \
-	ft_lstnew.c ft_lstiter.c ft_lstlast.c ft_lstclear.c ft_lstdelone.c
+SRCS_B = ft_lstsize_bonus.c ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstmap_bonus.c \
+	ft_lstnew_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c ft_lstclear_bonus.c ft_lstdelone_bonus.c
 
 OBJS = ${SRCS:.c=.o}
 
