@@ -6,7 +6,7 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 23:10:50 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/28 15:18:46 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/09/01 00:57:31 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strrchr(const char *s, int c)
 	if (s[i] == (char)c)
 		return ((char *)&s[i]);
 	i--;
-	while (s[i])
+	while (s[i] && i >= 0)
 	{
 		if (s[i] == (char) c)
 		{
@@ -28,5 +28,5 @@ char	*ft_strrchr(const char *s, int c)
 		}
 		i--;
 	}
-	return (0);
+	return (NULL);
 }

@@ -6,12 +6,12 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 19:53:20 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/28 15:07:58 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/09/01 01:48:31 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_isdigit(char letter)
+int	ft_isdigit(int letter)
 {
 	if (letter >= '0' && letter <= '9')
 	{

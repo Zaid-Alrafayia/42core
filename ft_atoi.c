@@ -6,7 +6,7 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 01:27:30 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/28 15:05:25 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/08/31 16:10:41 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	ft_atoi(const char *str)
 	{
 		if (str[i] == '-')
 			neg *= -1;
+		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
