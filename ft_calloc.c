@@ -6,7 +6,7 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 22:30:07 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/28 15:06:23 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/09/02 14:18:49 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_calloc(size_t n, size_t size)
 	void	*arr;
 
 	if (n == 0 || size == 0)
-		return (malloc(1));
+		return (NULL);
 	arr = malloc(n * size);
 	if (!arr)
 		return (0);
