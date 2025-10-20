@@ -6,7 +6,7 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 22:20:07 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/08/28 15:13:41 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/09/02 14:21:09 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ char	**ft_split(char const *s, char c)
 	int		j;
 	int		start;
 
+	if (!s && !c)
+		return (NULL);
 	i = -1;
 	start = -1;
 	j = 0;
@@ -75,6 +77,6 @@ char	**ft_split(char const *s, char c)
 			start = -1;
 		}
 	}
-	arr[j] = 0;
+	arr[j] = NULL;
 	return (arr);
 }
