@@ -6,29 +6,70 @@
 /*   By: zaalrafa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 17:06:56 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/11/05 03:00:28 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/11/06 18:40:14 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include <unistd.h>
 
-static int choose(const char *str, int i, void *arg) {}
-int ft_printf(const char *str, ...) {
-  va_list param;
-  int i;
+static int	print_str(char *s, int fd)
+{
+	int	i;
 
-  va_start(param, str);
-  i = 0;
-  while (str[i] != '\0') {
-    if (str[i] == '%') {
-      i++;
-      if (str[i] == 'c') {
-        write(1, &va_arg(param, char), 1);
-        i++;
-      } else if (str[i] == 'x' || str[i] == 'X') {
-      }
-    } else
-      ft_putchar_fd(str[i], 1);
-    i++;
-  }
+	i = 0;
+	if (!s)
+		return (0);
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	return (i);
+}
+
+static int	choose(char delimiter, va_list *params, int *i, const char *str)
+{
+	if (!str)
+		return (0);
+	if (delimiter == 'c')
+	{
+		ft_putchar_fd(va_arg(*params, int), 1);
+		i++;
+	}
+	else if (delimiter == 'x' || delimiter == 'X')
+		hex_convert(str, i, va_arg(*params, int));
+	else if (delimiter == '%')
+		ft_putchar_fd('%', 1);
+	else if (delimiter == 'p')
+	{
+		write(1, "0x", 2);
+		hex_convert(str, i, va_arg(*params, int));
+	}
+	else if (delimiter == 's')
+		i += print_str(va_arg(*params, char *), 1);
+	else if (delimiter == 'd' || delimiter == 'i')
+		i += print_str(ft_itoa(va_arg(*params, int)), 1);
+	else if (delimiter == 'u')
+		i += print_str(ft_itoa(va_arg(*params, unsigned int)), 1);
+	return (1);
+}
+int	ft_printf(const char *str, ...)
+{
+	va_list	param;
+	int		i;
+	int		result;
+
+	result = 1;
+	va_start(param, str);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] != '%')
+			write(1, &str[i], 1);
+		else
+			result = choose(str[i++], &param, &i, str);
+		i++;
+	}
+	return (result);
 }
