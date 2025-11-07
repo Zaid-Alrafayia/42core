@@ -47,13 +47,15 @@ static int	choose(char delimiter, va_list *params, int *i, const char *str)
 		hex_convert(str, i, va_arg(*params, int));
 	}
 	else if (delimiter == 's')
-		i += print_str(va_arg(*params, char *), 1);
+		print_str(va_arg(*params, char *), 1);
 	else if (delimiter == 'd' || delimiter == 'i')
-		i += print_str(ft_itoa(va_arg(*params, int)), 1);
+		print_str(ft_itoa(va_arg(*params, int)), 1);
 	else if (delimiter == 'u')
-		i += print_str(ft_itoa(va_arg(*params, unsigned int)), 1);
+		print_str(ft_itoa(va_arg(*params, unsigned int)), 1);
+	i++;
 	return (1);
 }
+
 int	ft_printf(const char *str, ...)
 {
 	va_list	param;
