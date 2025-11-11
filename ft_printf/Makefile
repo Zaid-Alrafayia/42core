@@ -6,7 +6,7 @@
 #    By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/07 21:37:09 by zaalrafa          #+#    #+#              #
-#    Updated: 2025/11/07 23:16:47 by zaalrafa         ###   ########.fr        #
+#    Updated: 2025/11/11 19:18:46 by zaalrafa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ AR = ar rcs
 
 RM = rm -f
 
-SRCS = ft_printf.c functions/hexconvert.c
+SRCS = ft_printf.c functions/hexconvert.c functions/pointer_conv.c
 
 OBJS = $(SRCS:.c=.o)
 

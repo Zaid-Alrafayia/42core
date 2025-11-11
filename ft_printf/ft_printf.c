@@ -6,12 +6,20 @@
 /*   By: zaalrafa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 17:06:56 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/11/06 18:40:14 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/11/11 19:45:48 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <unistd.h>
+
+static int	ft_abs(unsigned int n)
+{
+	if (n < 0)
+		return (-n);
+	else
+		return (n);
+}
 
 static int	print_str(char *s, int fd)
 {
@@ -44,14 +52,14 @@ static int	choose(char delimiter, va_list *params, int *i, const char *str)
 	else if (delimiter == 'p')
 	{
 		write(1, "0x", 2);
-		hex_convert(str, i, va_arg(*params, int));
+		pointer_conv((unsigned long)va_arg(*params, void *));
 	}
 	else if (delimiter == 's')
 		print_str(va_arg(*params, char *), 1);
 	else if (delimiter == 'd' || delimiter == 'i')
 		print_str(ft_itoa(va_arg(*params, int)), 1);
 	else if (delimiter == 'u')
-		print_str(ft_itoa(va_arg(*params, unsigned int)), 1);
+		print_str(ft_itoa(ft_abs(va_arg(*params, unsigned int))), 1);
 	i++;
 	return (1);
 }
@@ -78,7 +86,11 @@ int	ft_printf(const char *str, ...)
 	}
 	return (result);
 }
+
 // int	main(void)
 //{
-//	ft_printf("char:%c \nstring:%s", 'a', "hello my name is zaid");
+//	ft_printf("printf  : char:%c \nstring:%s \nptr:%p \ndec:%d \nint:%i
+//	\nunsigned:%u \nhex_lower:%x \nhex_upper:%X \npercent:%%\n",
+//		'a', "hello my name is zaid", (void *)0xDEADBEEF, -12345, 12345,
+//		4294967295u, 305441741u, /* 0x1234ABCD */ 305441741u);
 //}
