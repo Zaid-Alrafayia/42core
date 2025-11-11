@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include <unistd.h>
 
 static int	print_str(char *s, int fd)
@@ -70,8 +70,15 @@ int	ft_printf(const char *str, ...)
 		if (str[i] != '%')
 			write(1, &str[i], 1);
 		else
-			result = choose(str[i++], &param, &i, str);
+		{
+			i++;
+			result = choose(str[i], &param, &i, str);
+		}
 		i++;
 	}
 	return (result);
 }
+// int	main(void)
+//{
+//	ft_printf("char:%c \nstring:%s", 'a', "hello my name is zaid");
+//}

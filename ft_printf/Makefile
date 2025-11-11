@@ -10,8 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-
 NAME = libftprintf.a
+LIBNAME = libft.a
 
 CC = cc
 
@@ -19,7 +19,36 @@ CFLAGS = -Wall -Werror -Wextra
 
 AR = ar rcs
 
-RM= rm -f
+RM = rm -f
 
+SRCS = ft_printf.c functions/hexconvert.c
 
-SRCS = ft_printf.c functions/hexconvert.c 
+OBJS = $(SRCS:.c=.o)
+
+# Path to your libft directory
+LIBFT_DIR = libft
+LIBFT = $(LIBFT_DIR)/$(LIBNAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -c $< -o $@
+
+$(NAME): $(OBJS) $(LIBFT)
+	cp $(LIBFT) $(NAME)
+	$(AR) $(NAME) $(OBJS)
+
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_DIR)
+
+all: $(NAME)
+
+clean:
+	$(MAKE) -C $(LIBFT_DIR) clean
+	$(RM) $(OBJS)
+
+fclean: clean
+	$(MAKE) -C $(LIBFT_DIR) fclean
+	$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
