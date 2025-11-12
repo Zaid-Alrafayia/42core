@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zaalrafa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/25 15:23:53 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/11/12 14:58:18 by zaalrafa         ###   ########.fr       */
+/*   Created: 2025/11/12 16:35:53 by zaalrafa          #+#    #+#             */
+/*   Updated: 2025/11/12 18:54:31 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,8 @@
 # define FT_PRINTF_H
 # include "libft/libft.h"
 # include <stdarg.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
 
-int	ft_printf(const char *str, ...);
-int	hex_convert(const char *str, int *i, int num);
-int	pointer_conv(unsigned long num);
-int	print_num(int n, int fd);
+int	ft_printf(const char *format, ...);
+int	hex_convert(char deli, int num);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/07 21:37:09 by zaalrafa          #+#    #+#              #
-#    Updated: 2025/11/11 19:18:46 by zaalrafa         ###   ########.fr        #
+#    Updated: 2025/11/12 15:01:56 by zaalrafa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,14 +15,14 @@ LIBNAME = libft.a
 
 CC = cc
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -I./libft/ 
 
 AR = ar rcs
 
 RM = rm -f
 
-SRCS = ft_printf.c functions/hexconvert.c functions/pointer_conv.c
-
+SRCS = ft_printf.c functions/hexconvert.c functions/pointer_conv.c \
+			 functions/print_num.c
 OBJS = $(SRCS:.c=.o)
 
 # Path to your libft directory

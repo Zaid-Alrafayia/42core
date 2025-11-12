@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pointer_conv.c                                     :+:      :+:    :+:   */
+/*   print_num.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/11 18:08:26 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/11/12 15:02:31 by zaalrafa         ###   ########.fr       */
+/*   Created: 2025/11/12 14:13:00 by zaalrafa          #+#    #+#             */
+/*   Updated: 2025/11/12 15:00:01 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,31 +25,28 @@ static int	num_len(int num)
 	return (count);
 }
 
-int	pointer_conv(unsigned long num)
+int	print_num(int n, int fd)
 {
-	int	*arr;
-	int	j;
-	int	size;
+	char	buff[12];
+	int		i;
+	int		size;
 
-	size = num_len(num);
-	if (size == 0)
+	size = num_len(n);
+	i = size;
+	if (n == 0)
 	{
-		write(1, "nil", 3);
-		return (0);
+		ft_putchar_fd('0', 1);
+		return (1);
 	}
-	j = 0;
-	arr = (int *)malloc(size * sizeof(int));
-	while (num != 0)
+	while (n != 0)
 	{
-		if (num % 16 < 10)
-			arr[j] = num % 16 + '0';
-		else if (num % 16 >= 10)
-			arr[j] = num % 16 + 'a' - 10;
-		num = num / 16;
-		j++;
+		buff[i] = n % 10 + 48;
+		n /= 10;
+		i--;
 	}
-	while (--j >= 0)
-		write(1, &arr[j], 1);
-	free(arr);
+	buff[size] = '\0';
+	ft_putstr_fd(buff, fd);
 	return (size);
 }
+// 100000
+// 000001
