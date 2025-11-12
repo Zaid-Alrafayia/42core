@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hexconvert.c                                       :+:      :+:    :+:   */
+/*   point_conv.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/05 00:55:17 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/11/13 02:11:32 by zaalrafa         ###   ########.fr       */
+/*   Created: 2025/11/13 01:35:30 by zaalrafa          #+#    #+#             */
+/*   Updated: 2025/11/13 01:37:14 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	num_len(unsigned int num)
 	return (count);
 }
 
-int	hex_convert(char deli, int num)
+int	point_conv(int num)
 {
 	char			*arr;
 	int				j;
@@ -36,12 +36,11 @@ int	hex_convert(char deli, int num)
 	if (num == 0)
 		return (write(1, "0", 1));
 	arr = (char *)malloc(num_len(n) * sizeof(char));
+	ft_putstr_fd("0x", 1);
 	while (n != 0)
 	{
 		if (n % 16 < 10)
 			arr[j] = (unsigned int)(n % 16 + '0');
-		else if (n % 16 >= 10 && deli == 'X')
-			arr[j] = (unsigned int)(n % 16 + 'A' - 10);
 		else if (n % 16 >= 10)
 			arr[j] = (unsigned int)(n % 16 + 'a' - 10);
 		n = n / 16;
@@ -51,5 +50,5 @@ int	hex_convert(char deli, int num)
 		write(1, &arr[j], 1);
 	j = ft_strlen(arr);
 	free(arr);
-	return (j);
+	return (j + 2);
 }

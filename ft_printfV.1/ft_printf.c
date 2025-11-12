@@ -6,14 +6,37 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:03:08 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/11/12 16:49:43 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/11/13 02:04:50 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft/libft.h"
+#include <unistd.h>
 
-int	printf(const char *format, ...)
+int	choose(char deli, va_list params)
+{
+	if (deli == 'x' || deli == 'X')
+		return (hex_convert(deli, va_arg(params, int)));
+	else if (deli == 'c')
+	{
+		(ft_putchar_fd(va_arg(params, int), 1));
+		return (1);
+	}
+	else if (deli == '%')
+		return (write(1, "%", 1));
+	else if (deli == 'p')
+		return (point_conv(va_arg(params, int)));
+	else if (deli == 'd' || deli == 'i')
+		return (print_num(va_arg(params, int), 1));
+	else if (deli == 'u')
+		return (print_num(va_arg(params, unsigned int), 1));
+	else if (deli == 's')
+		return (print_str(va_arg(params, char *), 1));
+	return (0);
+}
+
+int	ft_printf(const char *format, ...)
 {
 	va_list	params;
 	int		result;
@@ -29,7 +52,7 @@ int	printf(const char *format, ...)
 		else
 		{
 			format++;
-			result += choose()
+			result += choose(*format, params);
 		}
 		format++;
 	}

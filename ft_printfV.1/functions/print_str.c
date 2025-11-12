@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   print_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/12 16:35:53 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/11/13 01:52:56 by zaalrafa         ###   ########.fr       */
+/*   Created: 2025/11/13 01:50:07 by zaalrafa          #+#    #+#             */
+/*   Updated: 2025/11/13 01:54:06 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../ft_printf.h"
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include "libft/libft.h"
-# include <stdarg.h>
+int	print_str(char *s, int fd)
+{
+	int	i;
 
-int	ft_printf(const char *format, ...);
-int	hex_convert(char deli, int num);
-int	point_conv(int num);
-int	print_num(int n, int fd);
-int	print_str(char *s, int fd);
-#endif
+	i = 0;
+	if (!s)
+		return (0);
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	return (i);
+}
