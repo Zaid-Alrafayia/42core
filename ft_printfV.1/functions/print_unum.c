@@ -1,30 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_str.c                                        :+:      :+:    :+:   */
+/*   print_unum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/13 01:50:07 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/11/13 17:15:56 by zaalrafa         ###   ########.fr       */
+/*   Created: 2025/11/13 13:42:55 by zaalrafa          #+#    #+#             */
+/*   Updated: 2025/11/13 17:24:39 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../ft_printf.h"
 
-int	print_str(char *s, int fd)
+static int	num_len(unsigned int num)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	if (!s)
+	count = 0;
+	if (num == 0)
+		return (1);
+	while (num != 0)
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
+		num /= 10;
+		count++;
 	}
-	while (s[i])
+	return (count);
+}
+
+int	print_unum(unsigned int n, int fd)
+{
+	char	buff[12];
+	int		i;
+	int		size;
+
+	size = num_len(n);
+	i = size;
+	if (n == 0)
 	{
-		write(fd, &s[i], 1);
-		i++;
+		ft_putchar_fd('0', fd);
+		return (1);
 	}
-	return (i);
+	buff[i--] = '\0';
+	while (n != 0)
+	{
+		buff[i] = n % 10 + 48;
+		n /= 10;
+		i--;
+	}
+	ft_putstr_fd(buff, fd);
+	return (size);
 }

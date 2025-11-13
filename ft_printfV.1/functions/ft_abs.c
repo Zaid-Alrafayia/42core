@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_str.c                                        :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/13 01:50:07 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/11/13 17:15:56 by zaalrafa         ###   ########.fr       */
+/*   Created: 2025/11/13 14:30:44 by zaalrafa          #+#    #+#             */
+/*   Updated: 2025/11/13 14:31:34 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../ft_printf.h"
 
-int	print_str(char *s, int fd)
+int	ft_abs(int n)
 {
-	int	i;
-
-	i = 0;
-	if (!s)
-	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
-	}
-	while (s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
-	return (i);
+	if (n < 0)
+		return (-n);
+	return (n);
 }

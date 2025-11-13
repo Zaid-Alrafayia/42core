@@ -1,12 +1,13 @@
 NAME = libftprintf.a
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -I. -I./libft
+CFLAGS = -g -Wall -Werror -Wextra -I. -I./libft
 
 AR = ar rcs
 RM = rm -f
 
-SRCS = ft_printf.c functions/hexconvert.c functions/point_conv.c functions/print_num.c functions/print_str.c
+SRCS = ft_printf.c functions/hexconvert.c functions/point_conv.c functions/print_num.c \
+			 functions/print_str.c functions/print_unum.c functions/ft_abs.c
 FT_SRCS = ft_itoa.c ft_split.c ft_strncmp.c \
 	ft_atoi.c ft_memchr.c ft_strchr.c ft_strnstr.c \
 	ft_bzero.c ft_memcpy.c ft_strdup.c ft_strrchr.c \

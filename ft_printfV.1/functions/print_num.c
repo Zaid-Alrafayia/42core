@@ -6,7 +6,7 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 01:39:21 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/11/13 01:39:50 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/11/13 14:36:21 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	num_len(int num)
 	int	count;
 
 	count = 0;
+	if (num < 0)
+		count++;
 	while (num != 0)
 	{
 		num /= 10;
@@ -38,13 +40,15 @@ int	print_num(int n, int fd)
 		ft_putchar_fd('0', 1);
 		return (1);
 	}
+	buff[i--] = '\0';
+	if (n < 0)
+		buff[0] = '-';
 	while (n != 0)
 	{
-		buff[i] = n % 10 + 48;
+		buff[i] = ft_abs(n % 10) + 48;
 		n /= 10;
 		i--;
 	}
-	buff[size] = '\0';
 	ft_putstr_fd(buff, fd);
 	return (size);
 }
