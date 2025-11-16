@@ -10,7 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char *get_next_line(int fd)
-{
+#include "get_next_line.h"
+#include <fcntl.h>
 
+char	*get_next_line(int fd)
+{
+	printf("%s", read(fd, 100, 100));
+}
+int	main(int argc, char **argv)
+{
+	(void)argc;
+	get_next_line(open(argv[1], O_RDONLY));
 }

@@ -14,7 +14,7 @@
 #include "libft/libft.h"
 #include <unistd.h>
 
-int	choose(char deli, va_list params)
+static int	choose(char deli, va_list params)
 {
 	if (deli == 'x' || deli == 'X')
 		return (hex_convert(deli, va_arg(params, unsigned int)));
@@ -26,7 +26,7 @@ int	choose(char deli, va_list params)
 	else if (deli == '%')
 		return (write(1, "%", 1));
 	else if (deli == 'p')
-		return (point_conv(va_arg(params, unsigned long)));
+		return (point_conv((unsigned long)va_arg(params, void *)));
 	else if (deli == 'd' || deli == 'i')
 		return (print_num(va_arg(params, int), 1));
 	else if (deli == 'u')
