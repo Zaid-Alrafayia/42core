@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*read_line(int fd, ssize_t *fdcheck)
 {
@@ -81,17 +81,21 @@ static char	*set_line(char *new)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*left_over;
+	static char	*fd_list[1024];
+	char		*left_over;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
+	left_over = fd_list[fd];
 	line = fill_line(fd, left_over, "");
 	if (!line || line[0] == 0)
 	{
 		free(line);
 		left_over = NULL;
+		fd_list[fd] = NULL;
 		return (NULL);
 	}
 	left_over = set_line(line);
+	fd_list[fd] = left_over;
 	return (line);
 }
