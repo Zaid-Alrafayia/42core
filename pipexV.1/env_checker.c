@@ -6,7 +6,7 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 19:30:23 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/12/30 20:36:40 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/12/31 16:45:27 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "pipex.h"
@@ -67,6 +67,6 @@ char	*check_path(t_pipex *px, char *cmd)
 		free(tmp);
 		free(search_path);
 	}
-	free_arr(arr);
+	error_cmd(arr);
 	return (NULL);
 }

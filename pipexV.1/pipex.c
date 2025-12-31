@@ -6,7 +6,7 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 20:10:25 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/12/30 21:28:27 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/12/31 16:46:09 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "pipex.h"
@@ -48,4 +48,5 @@ int	main(int argc, char **argv, char **envp)
 	px.envp = envp;
 	access_file(&px);
 	pipex(&px);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 17:49:27 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/12/30 21:06:06 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/12/31 16:45:07 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void		access_file(t_pipex *px);
 int			run_cmd(char *cmd_path, char **split_cmd, char **envp);
 void		error_exit(char *msg, int code);
 char		**cmd_split(char *cmd);
+void		error_cmd(char **arr);
 
 // env_checker.c
 char		*get_path(char *envp[]);
