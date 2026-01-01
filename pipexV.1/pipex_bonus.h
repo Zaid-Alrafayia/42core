@@ -6,12 +6,12 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 17:49:27 by zaalrafa          #+#    #+#             */
-/*   Updated: 2026/01/01 00:13:10 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2026/01/01 02:01:44 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#ifndef PIPEX_BONUS_H
+# define PIPEX_BONUS_H
 # include "libft/libft.h"
 # include <fcntl.h>
 # include <sys/wait.h>

@@ -6,39 +6,51 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 20:10:25 by zaalrafa          #+#    #+#             */
-/*   Updated: 2026/01/01 00:59:26 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2026/01/01 02:18:32 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "pipex.h"
-#include <sys/wait.h>
-#include <unistd.h>
+#include "pipex_bonus.h"
 
 void	pipex(t_pipex *px)
 {
-	int	pid1;
-	int	pid2;
+	int	i;
+	int	pid;
+	int	start;
 
-	if (pipe(px->fd) == -1)
-		error_exit("pipex", 2);
-	pid1 = fork();
-	if (pid1 == 0)
-		child_process(px, 2);
-	pid2 = fork();
-	if (pid2 == 0)
-		child_process(px, 3);
-	close(px->fd[0]);
-	close(px->fd[1]);
+	if (px->here_doc)
+		start = 3;
+	else
+		start = 2;
+	i = start;
+	while (i < px->argc - 1)
+	{
+		if (i < px->argc - 2)
+		{
+			if (pipe(px->fd) == -1)
+				error_exit("pipex", 2);
+		}
+		pid = fork();
+		if (pid == 0)
+			child_process(px, i);
+		close(px->prev_fd);
+		if (i < px->argc - 2)
+		{
+			close(px->fd[1]);
+			px->prev_fd = px->fd[0];
+		}
+		i++;
+	}
 	close(px->outfd);
-	close(px->infd);
-	waitpid(pid1, NULL, 0);
-	waitpid(pid2, NULL, 0);
+	i = start;
+	while (i++ < px->argc - 1)
+		wait(NULL);
 }
 
 int	main(int argc, char **argv, char **envp)
 {
 	t_pipex	px;
 
-	if (argc != 5)
+	if (argc <= 5)
 	{
 		ft_putendl_fd("Usage: ./pipex infile cmd1 cmd2 outfile", 2);
 		return (1);
