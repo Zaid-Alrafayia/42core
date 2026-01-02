@@ -9,20 +9,13 @@
 /*   Updated: 2026/01/01 02:18:32 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft/libft.h"
 #include "pipex_bonus.h"
 
-void	pipex(t_pipex *px)
+void	pipe_loop(t_pipex *px, int i)
 {
-	int	i;
 	int	pid;
-	int	start;
 
-	if (px->here_doc)
-		start = 3;
-	else
-		start = 2;
-	i = start;
-	px->prev_fd = px->infd;
 	while (i < px->argc - 1)
 	{
 		if (i < px->argc - 2)
@@ -41,6 +34,20 @@ void	pipex(t_pipex *px)
 		}
 		i++;
 	}
+}
+
+void	pipex(t_pipex *px)
+{
+	int	i;
+	int	start;
+
+	if (px->here_doc)
+		start = 3;
+	else
+		start = 2;
+	i = start;
+	px->prev_fd = px->infd;
+	pipe_loop(px, i);
 	close(px->outfd);
 	i = start;
 	while (i++ < px->argc - 1)
@@ -56,6 +63,10 @@ int	main(int argc, char **argv, char **envp)
 		ft_putendl_fd("Usage: ./pipex infile cmd1 cmd2 outfile", 2);
 		return (1);
 	}
+	if (!ft_strncmp(argv[1], "here_doc", 10))
+		px.here_doc = 1;
+	else
+		px.here_doc = 0;
 	px.argc = argc;
 	px.argv = argv;
 	px.envp = envp;
