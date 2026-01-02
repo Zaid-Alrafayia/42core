@@ -22,6 +22,7 @@ void	pipex(t_pipex *px)
 	else
 		start = 2;
 	i = start;
+	px->prev_fd = px->infd;
 	while (i < px->argc - 1)
 	{
 		if (i < px->argc - 2)

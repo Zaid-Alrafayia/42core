@@ -23,11 +23,13 @@ void	child_process(t_pipex *px, int i)
 	dup2(px->prev_fd, STDIN_FILENO);
 	close(px->prev_fd);
 	if (i == px->argc - 2)
-		dup2(px->prev_fd, STDOUT_FILENO);
+		dup2(px->outfd, STDOUT_FILENO);
 	else
+	{
 		dup2(px->fd[1], STDOUT_FILENO);
-	close(px->fd[0]);
-	close(px->fd[1]);
+		close(px->fd[0]);
+		close(px->fd[1]);
+	}
 	close(px->infd);
 	close(px->outfd);
 	execve(cmd_path, split_cmd, px->envp);
