@@ -16,26 +16,28 @@
 void	lim_handler(t_pipex *px)
 {
 	char	*str;
-	int		flag;
+	size_t	len;
+	int		fd[2];
 
-	pipe(px->fd);
-	flag = 1;
-	while (flag)
+	if (pipe(fd) == -1)
+		error_exit("pipe", 1);
+	len = ft_strlen(px->argv[2]);
+	while (1)
 	{
-		ft_printf("here_doc>");
+		ft_printf("here_doc> ");
 		str = get_next_line(0);
-		if (ft_strncmp(str, "here_doc\n", 10))
+		if (!str)
+			break ;
+		if (ft_strncmp(str, px->argv[2], len) == 0 && str[len] == '\n')
 		{
-			write(px->fd[1], &str, ft_strlen(str));
 			free(str);
+			break ;
 		}
-		else
-		{
-			flag = 0;
-		}
+		write(fd[1], str, ft_strlen(str));
+		free(str);
 	}
-	close(px->fd[1]);
-	px->infd = px->fd[0];
+	close(fd[1]);
+	px->infd = fd[0];
 }
 
 void	access_file(t_pipex *px)
