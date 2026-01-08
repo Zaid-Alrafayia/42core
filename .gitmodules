@@ -4,3 +4,12 @@
 [submodule "push_swap"]
 	path = push_swap
 	url = git@github.com:Zaid-Alrafayia/push_swap.git
+[submodule "pipex"]
+	path = pipex
+	url = git@github.com:Zaid-Alrafayia/pipex.git
+[submodule "get_next_line"]
+	path = get_next_line
+	url = git@github.com:Zaid-Alrafayia/get_next_line.git
+[submodule "ft_printf"]
+	path = ft_printf
+	url = git@github.com:Zaid-Alrafayia/ft_printf.git
