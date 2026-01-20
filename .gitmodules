@@ -13,3 +13,6 @@
 [submodule "ft_printf"]
 	path = ft_printf
 	url = git@github.com:Zaid-Alrafayia/ft_printf.git
+[submodule "fdf"]
+	path = fdf
+	url = git@github.com:Zaid-Alrafayia/fdf.git
