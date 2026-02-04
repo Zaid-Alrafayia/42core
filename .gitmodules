@@ -16,3 +16,6 @@
 [submodule "fdf"]
 	path = fdf
 	url = git@github.com:Zaid-Alrafayia/fdf.git
+[submodule "Philosophers"]
+	path = Philosophers
+	url = git@github.com:Zaid-Alrafayia/Philosophers.git
